@@ -1,0 +1,9 @@
+//- por defecto recibe un proyecto vacío
+mixin crearProyecto(proyecto = {})
+
+    form.agregar-proyecto(action=`/nuevo-proyecto/${proyecto.id || ''}` method="POST")
+            .campo 
+                label(for="nombre") Nombre proyecto:
+                input(type="text" id="nombe" name="nombre" placeholder="nombre proyecto" value=proyecto.nombre) 
+            .campo-enviar
+                input(type="submit" value=`${proyecto.nombre ? 'Guardar' : 'Agregar'}` class="boton")
